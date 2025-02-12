@@ -8,26 +8,31 @@ credits: true
 # Look in _includes/feature for options to easily add features to the page
 ---
 
-{% include feature/jumbotron.html objectid="https://cdil.lib.uidaho.edu/images/palouse_sm.jpg" %} 
+{% include feature/jumbotron.html objectid=aktws0039 %} 
 
-{% include feature/nav-menu.html sections="About CollectionBuilder CSV;About the About Page" %}
+{% include feature/nav-menu.html sections="About the Archive; About the Alaska Chapter of The Wildlife Society" %}
 
-## About CollectionBuilder CSV
+## About the Archive
 
-This demo collection features items from the University of Idaho Library's [Digital Collections](https://www.lib.uidaho.edu/digital/), and is build using [CollectionBuilder-CSV](https://github.com/CollectionBuilder/collectionbuilder-csv).
+This collection serves as a centralized repository for official documents of the [Alaska Chapter of The Wildlife Society](https://www.wildlife.org/alaska/), including correspondence, policy documents, meeting materials, media, and other materials generated in service of our mission.
 
-CollectionBuilder-CSV is a "Stand Alone" template for creating digital collection and exhibit websites using Jekyll, given:
+The archive is organized by the following general subjects:
+1. Correspondence
+2. Newsletters
+3. Opinion
+4. Position Statements and Resolutions
+5. Technical Reviews
+6. Tributes
 
-- a CSV of collection metadata
-- a folder of images, PDFs, audio, or video files
+We are in the process of digitizing historical Chapter documents and relevant metadata — please stay tuned for periodic updates.
 
-Driven by your collection metadata, the template generates engaging visualizations to browse and explore your objects.
-The resulting static site can be hosted on any basic web server.
+## About the Alaska Chapter of The Wildlife Society
 
-[CollectionBuilder](https://github.com/CollectionBuilder/) is an set of open source tools for creating digital collection and exhibit websites that are driven by metadata and powered by modern static web technology.
-See [CB Docs](https://collectionbuilder.github.io/cb-docs/) for detailed information.
+[The Wildlife Society](https://www.wildlife.org) is an international nonprofit organization with a mission to “Empower wildlife professionals to advance conservation through science, community, and professional excellence.” Founded in 1937, TWS has since grown into an international network of over 11,000 wildlife professionals.
 
-{% include feature/image.html objectid="demo_001" width="75" %} 
+The Alaska Chapter was founded in 1971 to bring together the expertise of professional wildlife biologists dedicated to excellence in wildlife stewardship in Alaska through science and education. Our Chapter is one of the largest in the country, with over 200 members in state and federal agencies, academic institutions, non-governmental organizations, and private industry.
 
-<!-- IMPORTANT!!! DELETE this comment and the include below when you are finished editing this page for your collection. The include below introduces about page features. They will show up on your collection's about page until you delete it.  -->
-{% include cb/about_the_about.md %} 
+Our mission is to benefit the long-term health of Alaska’s wildlife and the sustained use and enjoyment of these resources by the public we collectively serve. In meeting our mandate, the Alaska Chapter serves as an objective, science-based organization that provides information and thoughtful analysis on important and relevant issues pertaining to conservation of wildlife and their habitats.
+
+
+

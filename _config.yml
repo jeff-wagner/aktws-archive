@@ -18,7 +18,7 @@ source-code: https://github.com/CollectionBuilder/collectionbuilder-csv
 # SITE SETTINGS
 #
 # title of site appears in banner
-title: AK-TWS Digital Archive
+title: Alaska TWS Digital Archive
 # tagline, a short phrase that will appear throughout the site in the top banner
 tagline: Historical documents of the Alaska Chapter of The Wildlife Society
 # description appears in meta tags and other locations
@@ -52,8 +52,8 @@ metadata: aktws-metadata
 #
 organization-name: "Alaska Chapter of The Wildlife Society"
 organization-link: https://www.wildlife.org/alaska
-organization-logo-banner: https://drive.google.com/file/d/0B2C11EOdIUhWbGt3Z3ZHTDdScmc/view?usp=sharing&resourcekey=0-GiI0Vctmi6qI-OzSjWUhTw
-organization-logo-nav: https://drive.google.com/file/d/0B2C11EOdIUhWbGt3Z3ZHTDdScmc/view?usp=sharing&resourcekey=0-GiI0Vctmi6qI-OzSjWUhTw
+organization-logo-banner: https://wildlife.org/wp-content/uploads/2025/02/AK_TWS_logo.webp
+organization-logo-nav: https://wildlife.org/wp-content/uploads/2022/12/AK_TWS_logo.png
 
 ##########
 # ROBOTS EXCLUDE
