@@ -51,9 +51,9 @@ metadata: aktws-metadata
 #   To remove the branding, comment out these values, or delete them. 
 #
 organization-name: "Alaska Chapter of The Wildlife Society"
-organization-link: https://www.wildlife.org/alaska
-organization-logo-banner: https://wildlife.org/wp-content/uploads/2025/02/AK_TWS_logo.webp
-organization-logo-nav: https://wildlife.org/wp-content/uploads/2022/12/AK_TWS_logo.png
+organization-link: https://aktws.org
+organization-logo-banner: https://www.aktws.org/wp-content/uploads/2025/10/TWS_AK_NEW_side_by_side_DARK_svg.svg
+organization-logo-nav: https://www.aktws.org/wp-content/uploads/2025/10/TWS_AK_NEW_side_by_side_DARK_svg.svg
 
 ##########
 # ROBOTS EXCLUDE

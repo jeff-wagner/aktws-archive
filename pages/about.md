@@ -14,7 +14,7 @@ credits: true
 
 ## About the Archive
 
-This collection serves as a centralized repository for official documents of the [Alaska Chapter of The Wildlife Society](https://www.wildlife.org/alaska/), including correspondence, policy documents, meeting materials, media, and other materials generated in service of our mission.
+This collection serves as a centralized repository for official documents of the [Alaska Chapter of The Wildlife Society](https://aktws.org), including correspondence, policy documents, meeting materials, media, and other materials generated in service of our mission.
 
 The archive is organized by the following general subjects:
 1. Correspondence
