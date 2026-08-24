@@ -8,9 +8,10 @@
 # URL VARIABLES
 #
 # site domain, full URL to the production location of your collection
-url: https://jeff-wagner.github.io
+url: https://archive.aktws.org
 # path to location on the domain if necessary e.g. /digital/hjccc
-baseurl: /aktws-archive
+# (empty: the custom domain serves the site from its root, not a subpath)
+baseurl: ""
 # location of code, the full url to your github repository
 source-code: https://github.com/jeff-wagner/aktws-archive
 
