@@ -79,28 +79,61 @@ These need to be re-sourced if they are wanted in the archive.
 
 ## Items with no searchable text layer
 
-These are image-only scans; `pdftotext` returns nothing for them. Descriptions were
-written from the document images or, where the page images could not be extracted
-with the tools available here, from the filename and surrounding context. Running
-OCR on these would improve their descriptions and enable `object_transcript`:
+These five are image-only scans; `pdftotext` returns nothing for them. Their page
+images were read directly to write the metadata, so titles, dates, addressees, and
+descriptions are taken from the documents themselves. Running OCR would still be
+worthwhile to make them full-text searchable and to populate `object_transcript`:
 
-- `AK_TWS_2019_ANWR_DEIS_Comments.pdf`
-- `AK_TWS_2019_Ambler_Road_DEIS_Comments.pdf`
-- `AK_TWS_2019_Tongass_Roadless_Rule_Comments.pdf`
-- `AK_TWS_2019_Willow_DEIS_Comments.pdf`
-- `AK_TWS_2020_NPRA_DEIS_Comments.pdf`
+- `AK_TWS_2019_ANWR_DEIS_Comments.pdf` — 12 Mar 2019, to Acting Sec. David Bernhardt
+- `AK_TWS_2019_Ambler_Road_DEIS_Comments.pdf` — 24 Oct 2019, to Tina McMaster-Goering, BLM
+- `AK_TWS_2019_Willow_DEIS_Comments.pdf` — 24 Oct 2019, to Sec. David Bernhardt
+- `AK_TWS_2019_Tongass_Roadless_Rule_Comments.pdf` — 10 Dec 2019, to Sec. Sonny Perdue, USDA
+- `AK_TWS_2020_NPRA_DEIS_Comments.pdf` — 17 Jan 2020, to Sec. David Bernhardt
 
 ## Derivative images
 
 `image_small` and `image_thumb` paths follow the existing convention
 (`_sm.jpg` at 800×800 fit, `_th.jpg` at 450px wide).
 
-- **Generated (44):** all `image/jpeg` objects, with EXIF orientation applied so
-  sideways phone photographs of documents render upright.
-- **Not generated (171):** PDF, Word, PowerPoint, RTF, text, and zip objects. These
-  need a document rasterizer (ImageMagick + Ghostscript), which is not installed on
-  this machine. Run `rake generate_derivatives` once those are available; the CSV
-  paths are already correct and will resolve when the files appear.
+**Generated: 252 of 253 rows.** Neither Ruby, ImageMagick, nor Ghostscript was
+installed. Page rendering used Windows' built-in `Windows.Data.Pdf` renderer plus
+`System.Drawing`, driven from PowerShell, which needs no admin rights.
+
+- 44 `image/jpeg` objects, with EXIF orientation applied so sideways phone
+  photographs of documents render upright.
+- 124 `application/pdf` objects, rendered from page 1 at 1600px and downsampled.
+- 46 office documents (24 `.docx`, 17 `.doc`, 2 `.ppt`, 2 `.rtf`, 1 `.txt`),
+  converted to a temporary PDF with LibreOffice in headless mode and then rendered
+  the same way. Spot-checked across all four format families; text documents,
+  the plain-text email, the PowerPoint title slide, and the scanned-page Word
+  wrappers all render correctly.
+- 38 objects that already had derivatives before this ingest.
+
+**Not generated: 1 row** — `ak_research_natural_areas_shapefiles.zip`, which has no
+renderable first page. CollectionBuilder shows a format-based icon for it.
+
+Note that `rake generate_derivatives` would not have covered the office documents
+either: its `EXTNAME_TYPE_MAP` handles only `.jpg`, `.jpeg`, `.png`, `.tif`,
+`.tiff`, and `.pdf`, so those formats have always been outside its scope.
+
+### Reproducing this
+
+Two scripts in the session scratchpad do the work: `pdf_derivs.ps1` (images and
+PDFs, no dependencies) and `lo_derivs.ps1` (office documents, takes a `-Soffice`
+path). Both skip objects whose derivatives already exist, so they are safe to
+re-run when new material is added.
+
+LibreOffice was used portable, from a user-writable folder — its MSI is
+machine-scope only and `winget install --scope user` is not available for it, so a
+normal install would require admin.
+
+An earlier attempt to convert the office documents with Word/PowerPoint COM
+automation was abandoned: Word opens the files correctly and reports accurate page
+counts, but both `Document.ExportAsFixedFormat` and
+`Document.SaveAs2(..., wdFormatPDF)` hang indefinitely on this machine. That is not
+a printer or file-location problem — it persists with a local virtual printer set as
+`ActivePrinter` and with all optional export parameters passed explicitly. Anyone
+retrying this work should use LibreOffice rather than Word.
 
 ## Pre-existing note
 
