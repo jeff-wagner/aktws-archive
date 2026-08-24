@@ -139,3 +139,33 @@ retrying this work should use LibreOffice rather than Word.
 
 `aktws0031` was already absent from `_data/aktws-metadata.csv` before this ingest.
 The gap was left as-is rather than renumbering existing records.
+
+---
+
+# Addendum — `Historical Documents/Recent`, 24 August 2026
+
+Added `aktws0255`–`aktws0260` (6 items), bringing the collection to **259 rows**.
+All six are born-digital PDFs with intact text layers, so no OCR was needed and no
+page images had to be read visually.
+
+| objectid | Date | Item |
+|---|---|---|
+| aktws0255 | 2025-03-07 | BOG Proposal 101 — intensive management of Dall sheep |
+| aktws0256 | 2025-03-07 | BOG Proposal 147 — importation of exotic species |
+| aktws0257 | 2025-03-24 | BOG RC009 timing — Mulchatna Caribou Herd IM petition |
+| aktws0258 | 2025-07-01 | NPR-A draft Integrated Activity Plan EA comments |
+| aktws0259 | 2026-02-27 | Letter to TWS Council — Student Liaison voting rights |
+| aktws0260 | 2026-03-20 | Tongass Land Management Plan revision scoping comments |
+
+Checks run: no MD5 duplicates against existing objects, none internally, no
+zero-byte files, no identifier or filename collisions. Derivatives generated for
+all six with `pdf_derivs.ps1` (0 failures) at the standard 800×800-fit and
+450px-wide sizes.
+
+Named creators are taken from the signature block: Ryan Mollnow (President) on five,
+Alex Lewis (President-Elect) on the NPR-A letter.
+
+One filename carried a double extension — `…Tongass Forest Plan March 2026.docx.pdf`
+— which would have produced the identifier `…_2026_docx`. `gen2.awk` now collapses a
+trailing document extension left in the stem, so the identifier is
+`akchapter_scoping_comments_tongass_forest_plan_march_2026`.
