@@ -169,3 +169,33 @@ One filename carried a double extension — `…Tongass Forest Plan March 2026.d
 — which would have produced the identifier `…_2026_docx`. `gen2.awk` now collapses a
 trailing document extension left in the stem, so the identifier is
 `akchapter_scoping_comments_tongass_forest_plan_march_2026`.
+
+## Annual meeting programs — `aktws0261`–`aktws0263`
+
+Added the programs for the 2024 (Anchorage), 2025 (Juneau), and 2026 (Anchorage)
+annual meetings, bringing the collection to **262 rows**.
+
+### Externally hosted objects
+
+`aktws0263` (the 2026 program) is the collection's first item stored outside the
+repository. Its `object_location` is the full URL
+
+    https://www.aktws.org/wp-content/uploads/2026/04/AKTWS_2026_program.pdf
+
+rather than a `/objects/…` path, keeping a 9.1 MB PDF out of the repo and out of the
+GitHub Pages artifact. The hosted copy was verified byte-identical to the local
+original by MD5 before the URL was used. Its `_sm`/`_th` derivatives are still stored
+locally, so the browse and item pages show a thumbnail without fetching the full PDF.
+
+Two supporting changes make this repeatable:
+
+- `gen2.awk` accepts an optional 12th field in the input that overrides
+  `object_location`; leave it empty for normal local objects.
+- `pdf_derivs.ps1` now skips rows whose `object_location` is an `http(s)` URL, since
+  there is no local file to render. Use `render_one.ps1 -Source <path> -Stem <identifier>`
+  to build derivatives for those from a source file held outside `objects/`.
+
+**Caveat:** an externally hosted object is only as durable as the URL. If the file is
+moved or renamed on aktws.org, that archive record breaks with no copy in the repo to
+fall back on. Worth a periodic link check, and worth keeping the master copy somewhere
+backed up independently of the website.
